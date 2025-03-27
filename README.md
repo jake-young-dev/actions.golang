@@ -1,5 +1,5 @@
 # actions.golang
-[![tests](https://github.com/jake-young-dev/actions.golang/actions/workflows/test.yaml/badge.svg)](https://github.com/jake-young-dev/actions.golang/actions/workflows/test.yaml)
+[![tests](https://github.com/jake-young-dev/actions.golang/actions/workflows/test.yaml/badge.svg?branch=master)](https://github.com/jake-young-dev/actions.golang/actions/workflows/test.yaml)
 
 An extremely simple github action to install golang and golang commands (using "go install") on linux hosts. This provides the ability to install and setup golang without node/typescript which is required when using [actions/setup-go](https://github.com/actions/setup-go). 
 
