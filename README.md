@@ -7,7 +7,7 @@ An extremely simple github action to install golang and golang commands (using "
 ## Usage
 I recommend using a tagged release to avoid unexpected changes that may come to the master branch, there may be breaking changes until v1.0.0
 ```yaml
-    - name: "install go"
+    name: "install go"
     uses: jake-young-dev/actions.golang@master
     with:
         commands: |
