@@ -11,7 +11,7 @@ I recommend using a tagged release to avoid unexpected changes that may come to 
     uses: jake-young-dev/actions.golang@master
     with:
         commands: |
-        github.com/jake-young-dev/kelp@v0.0.9
+            github.com/jake-young-dev/kelp@v0.0.9
 ```
 
 #### Go verions
