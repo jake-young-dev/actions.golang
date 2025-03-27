@@ -1,0 +1,25 @@
+name: "actions.golang"
+description: "fast install for golang and golang commands on linux workflows"
+inputs:
+  arch:
+    description: "Optional, the linux architecture to use when downloading Go files (default: amd64)"
+    required: false
+    default: "amd64"
+  purge:
+    description: "Optional, deletes any previously installed go versions (yes|no)"
+    required: false
+    default: "no"
+  commands:
+    description: "Optional, any commands to be installed with 'go install', must include version"
+    required: false
+    default: "."
+runs:
+  using: composite
+  steps:
+    - name: "run script"
+      run: ${{ github.action_path }}/install.sh
+      shell: bash
+      env:
+        GO_INSTALL_COMMANDS: ${{ inputs.commands }}
+        GO_INSTALL_ARCH: ${{ inputs.arch }}
+        GO_INSTALL_PURGE: ${{ inputs.purge }}

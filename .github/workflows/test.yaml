@@ -1,0 +1,33 @@
+name: "tests"
+run-name: "tests"
+on:
+  push:
+    branches: master
+    paths: 
+      - install.sh
+      - action.yaml
+      - .github/workflows/test.yaml #changing pipeline triggers run
+
+jobs:
+  test:
+    runs-on: [ubuntu-22.04]
+    steps:
+      - name: "setup mock go.mod file"
+        shell: bash
+        run: |
+          echo -e "module github.com/jake-young-dev/actions.golang\n\ngo 1.24" > go.mod
+
+      - name: "run go install script"
+        uses: jake-young-dev/actions.golang@master
+        with:
+          purge: yes #removes old go versions if present (github hosted runners come preloaded with go)
+          commands: |
+            github.com/jake-young-dev/kelp@v0.0.9
+
+      - name: "check go version"
+        shell: bash
+        run: go version | grep "go version go1.24.0 linux/amd64"
+
+      - name: "check go command version"
+        shell: bash
+        run: kelp -v | grep "kelp version v0.0.9"
